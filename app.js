@@ -26,11 +26,16 @@ app.use(
     max: 100, // limit each IP to 100 requests per windowMs
   })
 );
+
 app.use(express.json());
 // extra packages
 app.use(helmet());
 app.use(cors());
 app.use(xss());
+
+app.get("/", (req, res) => {
+  res.send("jobs api");
+});
 
 // routes
 app.use("/api/v1/auth", authRouter);
