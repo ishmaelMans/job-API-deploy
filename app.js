@@ -13,7 +13,7 @@ const xss = require("xss-clean");
 const rateLimiter = require("express-rate-limit");
 
 //authentication
-const authentication = require("./middleware/authentication");
+const auth = require("./middleware/authentication");
 
 // error handler
 const notFoundMiddleware = require("./middleware/not-found");
@@ -39,7 +39,7 @@ app.get("/", (req, res) => {
 
 // routes
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/jobs", authentication, jobRouter);
+app.use("/api/v1/jobs", auth, jobRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);

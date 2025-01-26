@@ -9,13 +9,13 @@ const JobSchema = new mongoose.Schema(
     },
     position: {
       type: String,
-      required: [true, "please Provide Position"],
+      required: [true, "Please provide position"],
       maxlength: 100,
     },
     status: {
       type: String,
-      enum: ["Interview", "declined", "pending"],
-      default: "pending",
+      enum: ["Interview", "Declined", "Pending"],
+      default: "Pending",
     },
     createdBy: {
       type: mongoose.Types.ObjectId,
@@ -26,4 +26,4 @@ const JobSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("job", JobSchema);
+module.exports = mongoose.model("Job", JobSchema);
